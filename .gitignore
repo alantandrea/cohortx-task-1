@@ -1,0 +1,12 @@
+# Competition data — non-redistributable per rules §2.4b; obtain via Kaggle
+data/
+
+# Large / regenerable artifacts
+models/gen_cond/model.safetensors
+models/emb_cache/
+models/biobert/
+
+# Python
+__pycache__/
+*.pyc
+.venv/

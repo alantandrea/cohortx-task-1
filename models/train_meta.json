@@ -1,0 +1,13 @@
+{
+  "n_train": 416,
+  "biobert": "pritamdeka/BioBERT-mnli-snli-scinli-scitail-mednli-stsb",
+  "study_type_cv_acc": 0.702,
+  "sex_cv_acc": 0.8774,
+  "sex_balanced": true,
+  "ranker_cv_f1_macro": 0.4775,
+  "sklearn": "1.6.1",
+  "sentence_transformers": "5.2.0",
+  "ranker_rel_thresh": 0.45,
+  "topk_inc": 6,
+  "topk_exc": 5
+}
