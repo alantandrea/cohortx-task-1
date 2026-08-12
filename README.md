@@ -49,6 +49,7 @@ final_submission/
     run_inference.py        # ENTRY POINT — regenerates submission.csv
     build_gen_data.py       # builds (article -> gold) training pairs from provided data
     train_gen.py            # fine-tunes FLAN-T5 on those pairs (training code)
+    train.py                # trains study_type / sex / eligibility-ranker (training code)
     extract.py              # eligibility/study/sex/age extraction (no external data)
     nxml.py, data_io.py, features.py, models_io.py
   models/
@@ -90,8 +91,12 @@ python src/build_gen_data.py                                   # writes data/gen
 python src/train_gen.py --data data/gen_cond.jsonl --out models/gen_cond \
        --model google/flan-t5-base --epochs 14 --bs 8 --max_tgt 64
 ```
-The study_type / sex / eligibility-ranker models were trained on the 416 provided rows with
-the project's `train.py`; `train_meta.json` records the training metadata.
+## Retrain the classifiers from scratch (provided data only)
+```bash
+cd final_submission
+python src/train.py    # trains study_type_clf, sex_clf, eligibility_ranker on the 416 rows
+```
+`train_meta.json` records the training metadata (CV scores, versions, thresholds).
 
 ## Notes
 - This package deliberately contains **no ClinicalTrials.gov code or cache**. Any file named

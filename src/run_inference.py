@@ -1,6 +1,6 @@
 """CohortX Task 1 — 100% COMPLIANT inference.
 
-Reproduces `submission.csv` (public 0.71784, est. private ~0.715). Every field is
+Reproduces `submission.csv` (public 0.71784, private 0.69244 — final). Every field is
 derived ONLY from the provided NXML article and models trained ONLY on the provided
 416 rows (+ lightweight pretrained models, which the host permits). NO external data,
 NO ClinicalTrials.gov / PubMed / UMLS lookups, NO network at inference.

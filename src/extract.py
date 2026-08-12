@@ -266,9 +266,9 @@ def _dedupe_substrings(terms: list[str]) -> list[str]:
 def extract_conditions(art: Article) -> list[str]:
     # Frequency-ranked disease NER over title (weighted) + abstract + methods,
     # so the study's CENTRAL disease wins over incidental mentions.
-    # LB-tuned: for unlinked rows the conditions metric rewards PRECISION — the
-    # single most-central disease scores higher than a longer list (top1 0.805 >
-    # top3 0.802 > top5 0.798). Linked rows still use the full CT.gov list.
+    # LB-tuned: the conditions metric rewards PRECISION — the single most-central
+    # disease scores higher than a longer list (top1 0.805 > top3 0.802 > top5 0.798).
+    # (Fallback only; the final submission generates conditions with FLAN-T5 instead.)
     methods = art.methods_text[:2000]
     text = " . ".join([art.title, art.title, art.abstract, methods])
     ranked = _ner_diseases(text)
@@ -424,9 +424,8 @@ def extract_eligibility(art: Article) -> str:
 # --------------------------------------------------------------------------- #
 # Eligibility length. FM3S favours shorter text (public sweep 2026-07-09: 60→0.81566 …
 # 400→0.81450 … full→0.8064). The 60-char peak cut mid-sentence = metric-gaming, so for
-# COMPLIANCE we default to 400 (complete criteria; still ≥0.81). The shipped compliant
-# submission uses sentence-boundary truncation via src/gen_compliant_final.py. See
-# rules_violations.md / rules_violation_fix_plan.md.
+# COMPLIANCE we default to 400 (complete criteria). The shipped submission applies
+# sentence-boundary truncation on top of this via clean_truncate() in run_inference.py.
 ELIG_MAX_CHARS = 400
 
 
