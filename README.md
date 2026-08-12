@@ -15,7 +15,7 @@ Showcase at MICCAI 2026.
 `submission.csv` in this folder is the exact file that was selected for final judging
 (public 0.71784 / private 0.69244).
 
-## Compliance statement (why this is 100% compliant)
+## Solution:
 Per the host's ruling — *"external datasets (PubMed, ClinicalTrials.gov, UMLS, MeSH, Disease
 Ontology) are NOT allowed for training or inference; the only data you can use is the one we
 provided on Kaggle"*, and *"pretrained models ARE allowed if lightweight / laptop-runnable;
