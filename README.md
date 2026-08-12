@@ -1,4 +1,4 @@
-# CohortX Task 1 — Final Submission (100% Rules-Compliant)
+# CohortX Task 1 — Final Submission
 
 Extracts the six cohort-selection fields from PMC full-text `.nxml` articles.
 
